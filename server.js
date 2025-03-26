@@ -1,8 +1,11 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const app = express();
+
 const dotenv = require("dotenv");
 dotenv.config();
+
+app.use(express.json());
 
 
 app.get('/ping', (req, res) => {
@@ -12,6 +15,10 @@ app.get('/ping', (req, res) => {
         res.status(500).send({msg:"something went wrong"});
     }
 });
+
+const router = require("./router");
+
+app.use("/mush",router);
 
 
 app.listen(3000, async() => {
