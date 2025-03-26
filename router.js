@@ -49,7 +49,7 @@ router.put("/updatemushroom/:id",async(req,res)=>{
 
 router.delete("/deletemushroom/:id",async(req,res)=>{
     try {
-
+    
         const mushDeleted = await mushroom.findByIdAndDelete(req.params.id);
 
         res.status(200).send({msg:"Mushroom deleted successfully....."});
