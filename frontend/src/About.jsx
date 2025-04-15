@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import NavBar from './Components/NavBar';
 const About = () => {
   return (
     <div style={{ textAlign: "center", fontFamily: "Arial"}}>
