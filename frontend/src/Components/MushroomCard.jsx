@@ -4,6 +4,7 @@ import "./MushroomCard.css";
 const Mushroom = () => {
   const mushroomEntries = [
     {
+      id: 1,
       name: "Luminous Cap",
       description: "Glows in the dark and grants night vision.",
       location: "Enchanted Forest",
@@ -13,6 +14,7 @@ const Mushroom = () => {
       discoveredBy: "Elder Myco"
     },
     {
+      id: 2,
       name: "Shadow Spore",
       description: "Casts shadows even in bright light.",
       location: "Darkwood Hollow",
@@ -22,6 +24,7 @@ const Mushroom = () => {
       discoveredBy: "Rogue Alchemist"
     },
     {
+      id: 3,
       name: "Crimson Veil",
       description: "Used in ancient rituals for healing.",
       location: "Bloodroot Caverns",
@@ -31,6 +34,7 @@ const Mushroom = () => {
       discoveredBy: "Oracle Vex"
     },
     {
+      id: 4,
       name: "Frostcap",
       description: "Shivers even without wind.",
       location: "Frozen Glade",
@@ -40,6 +44,7 @@ const Mushroom = () => {
       discoveredBy: "Ice Wanderer"
     },
     {
+      id: 5,
       name: "Sunburst Shroom",
       description: "Radiates warmth and joy.",
       location: "Golden Meadows",
@@ -49,6 +54,7 @@ const Mushroom = () => {
       discoveredBy: "Druid Elara"
     },
     {
+      id: 6,
       name: "Ethereal Puffball",
       description: "Vanishing spores used for spirit travel.",
       location: "Spirit Grove",
@@ -58,6 +64,7 @@ const Mushroom = () => {
       discoveredBy: "Seer Althos"
     },
     {
+      id: 7,
       name: "Void Fungus",
       description: "Pulls energy from the air.",
       location: "Abyssal Depths",
@@ -67,6 +74,7 @@ const Mushroom = () => {
       discoveredBy: "Archmage Zorath"
     },
     {
+      id: 8,
       name: "Dreamcap",
       description: "Used in lucid dreaming ceremonies.",
       location: "Mystic Woods",
@@ -76,6 +84,7 @@ const Mushroom = () => {
       discoveredBy: "Sage Lirien"
     },
     {
+      id: 9,
       name: "Thunderstalk",
       description: "Crackles softly in storms.",
       location: "Stormpeak Cliffs",
@@ -85,6 +94,7 @@ const Mushroom = () => {
       discoveredBy: "Stormcaller Brann"
     },
     {
+      id: 10,
       name: "Ember Gills",
       description: "Survives in volcanic areas.",
       location: "Molten Crater",
@@ -97,22 +107,25 @@ const Mushroom = () => {
 
   return (
     <div>
-      {mushroomEntries.map((entry, index) => (
-        <div key={index} className="mushroomcard">
-          <img src={entry.image} alt={`${entry.name}'s image`} />
+      {mushroomEntries.map((entry) => (
+        <div key={entry.id} className="mushroomcard">
+          <img src={entry.image} alt={`${entry.name} image`} />
           <h2>{entry.name}</h2>
-          <p>{entry.description}</p>
+          <p><strong>Description:</strong> {entry.description}</p>
+          <p><strong>Location:</strong> {entry.location}</p>
+          <p><strong>Rarity:</strong> {entry.rarity}</p>
+          <p><strong>Discovered By:</strong> {entry.discoveredBy}</p>
           <div>
             <h4>Effects:</h4>
-            {entry.effects.map((effect, effectIndex) => (
-              <p key={effectIndex}>{effect}</p>
+            {entry.effects.map((effect, index) => (
+              <p key={index}>• {effect}</p>
             ))}
           </div>
           <hr />
         </div>
       ))}
     </div>
-  );  
+  );
 };
 
 export default Mushroom;
