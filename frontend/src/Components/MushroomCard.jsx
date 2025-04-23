@@ -1,5 +1,5 @@
 import React from "react";
-import "./MushroomCard.css";
+import "../Styles/MushroomCard.css";
 
 const Mushroom = () => {
   const mushroomEntries = [
@@ -107,7 +107,9 @@ const Mushroom = () => {
 
   return (
     <div>
-      {mushroomEntries.map((entry) => (
+      <h1>Musroom Home Page</h1>
+      {
+       mushroomEntries.map((entry) => (
         <div key={entry.id} className="mushroomcard">
           <img src={entry.image} alt={`${entry.name} image`} />
           <h2>{entry.name}</h2>
@@ -119,7 +121,8 @@ const Mushroom = () => {
             <h4>Effects:</h4>
             {entry.effects.map((effect, index) => (
               <p key={index}>• {effect}</p>
-            ))}
+            ))
+        }
           </div>
           <hr />
         </div>

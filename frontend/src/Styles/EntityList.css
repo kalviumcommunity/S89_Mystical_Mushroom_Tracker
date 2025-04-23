@@ -1,0 +1,56 @@
+/* Centering the page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(11, 11, 11, 0.814);
+    color: #130b0b;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Header */
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fefffe;
+  }
+  
+  /* Entity card container */
+  .entity-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ffffff22;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 222, 89, 0.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .entity-container:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Subheaders */
+  h2 {
+    color: #ffb347;
+    margin-bottom: 10px;
+  }
+  
+  h4 {
+    margin-top: 15px;
+    color: #ff80bf;
+  }
+  
+  /* Paragraphs */
+  p {
+    margin: 5px 0;
+    color: #e0e0e0;
+  }
+  
+  /* Bullet effect lines */
+  .entity-container p::before {
+    content: '';
+    margin-right: 5px;
+  }
+  

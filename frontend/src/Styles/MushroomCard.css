@@ -2,20 +2,21 @@
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f5ff;
+    background-color: #0d130d;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(120, 0, 200, 0.15);
     transition: transform 0.2s ease;
     color: black;
-   
+    border-color:#e3e3e3
   }
-  .mushroomcard:hover {
-    transform: scale(1.02);
-  }
+  
+  
   .mushroomcard img {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 12px;
-    display:flex;
+    display:block;
+    height: auto;
+    flex-wrap: wrap;
   }
   
