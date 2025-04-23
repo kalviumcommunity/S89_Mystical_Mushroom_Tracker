@@ -19,7 +19,9 @@ const mushroomSchema =  mongoose.Schema({
     effects:{
         type:[String],
     },           
-    discovered_by: String        
+    discovered_by: {
+        type:String 
+    }       
 });
 
 const mushroom = mongoose.model("Mushroom",mushroomSchema);

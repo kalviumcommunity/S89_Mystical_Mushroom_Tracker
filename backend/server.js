@@ -1,10 +1,13 @@
 const express = require('express');
 const mongoose = require("mongoose");
+const cors = require("cors");
+
 const app = express();
 
 const dotenv = require("dotenv");
 dotenv.config();
 
+app.use(cors());
 app.use(express.json());
 
 
@@ -17,7 +20,6 @@ app.get('/ping', (req, res) => {
 });
 
 const router = require("./router");
-
 app.use("/mush",router);
 
 
@@ -26,8 +28,8 @@ app.listen(3000, async() => {
         await mongoose.connect(process.env.MONGO_URI);
         console.log("Server connected successfully!");
     } catch (error) {
-        console.log("Error");
+        console.log("Error",error);
     }
-    
-    
+
+
 });
