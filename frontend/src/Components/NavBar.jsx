@@ -26,8 +26,8 @@ const NavBar = () => {
       <div onClick={() => navigate("/mushitem")}>
         <button style={buttonStyle}>Home</button>
       </div>
-      
-      <div onClick={()=>navigate("/entitiesList")}>
+
+      <div onClick={()=>navigate("/entitieslist")}>
         <button style={buttonStyle}>EntityList</button>
       </div>
 
