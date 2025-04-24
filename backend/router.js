@@ -15,7 +15,7 @@ router.post("/postmushroom", async (req, res) => {
         const exist = await Mushroom.findOne({name});
         console.log(exist)
         if (exist){
-            return res.status(400).send({msg:"user already exists"});
+            return res.status(400).send({msg:"Mushroom already exists"});
         }
         const data = new Mushroom({name, location, rarity, effects, discovered_by });
         await data.save();
