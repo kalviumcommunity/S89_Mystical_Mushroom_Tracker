@@ -23,7 +23,7 @@ const router = require("./router");
 app.use("/mush",router);
 
 
-app.listen(3009, async() => {
+app.listen(8080, async() => {
     try {
         await mongoose.connect(process.env.MONGO_URI);
         console.log("Server connected successfully!");

@@ -17,7 +17,7 @@ const AddMushroomForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3009/mush/postmushroom",formData);
+      await axios.post("http://localhost:8080/mush/postmushroom",formData);
       alert("Mystical mushroom added successfully!");
       setFormData({
         name: "",
