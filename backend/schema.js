@@ -1,23 +1,20 @@
 const mongoose = require('mongoose');
 
-const mushroomSchema =  mongoose.Schema({ 
-    id:{
-        type:String
-    },                  
+const mushroomSchema =  mongoose.Schema({                   
     name:{
         type:String,
         required:true
     },                
     location:{
         type:String,
-        required:true,
+        required:true
     },            
     rarity:{
         type:String,
         required:true
     },              
     effects:{
-        type:[String],
+        type:[String]
     },           
     discovered_by: {
         type:String 

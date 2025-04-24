@@ -1,23 +1,30 @@
 const express = require("express");
-const Mushroom = require("./schema"); // Schema should start with an uppercase letter (convention)
+const Mushroom = require("./schema");
+const mushroom = require("./schema");
 const router = express.Router();
+router.use(express.json());
 
 // Create a new mushroom entry
 router.post("/postmushroom", async (req, res) => {
     try {
-        const { id, name, location, rarity, effects, discovered_by } = req.body;
+        console.log(req.body);
+        const {name, location, rarity, effects, discovered_by } = req.body;
 
-        if (!id || !name || !location || !rarity) {
+        if (!name || !location || !rarity) {
             return res.status(400).json({ msg: "Please provide all required fields." });
         }
-
-        const data = new Mushroom({ id, name, location, rarity, effects, discovered_by });
+        const exit = await Mushroom.findOne({name});
+        console.log(exit)
+        if (exit){
+            return res.status(400).send({msg:"user already exit"});
+        }
+        const data = new Mushroom({name, location, rarity, effects, discovered_by });
         await data.save();
-        res.status(201).json({ msg: "Mushroom posted successfully.", data });
+        return res.status(201).json({ msg: "Mushroom posted successfully.", data });
 
     } catch (error) {
         console.error("Error posting mushroom:", error);
-        res.status(500).json({ msg: "Internal server error.", error: error.message });
+        return res.status(500).json({ msg: "Internal server error.", error: error.message });
     }
 });
 
@@ -38,7 +45,7 @@ router.put("/updatemushroom/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const { name, location, rarity, effects, discovered_by } = req.body;
-
+        console.log(req.body)
         if (!name || !location || !rarity) {
             return res.status(400).json({ msg: "Please provide all details." });
         }
@@ -53,11 +60,11 @@ router.put("/updatemushroom/:id", async (req, res) => {
             return res.status(404).json({ msg: "Mushroom not found." });
         }
 
-        res.status(200).json({ msg: "Mushroom details successfully updated.", updatedMushroom });
+        return res.status(200).json({ msg: "Mushroom details successfully updated.", updatedMushroom });
 
     } catch (error) {
         console.error("Error updating mushroom:", error);
-        res.status(500).json({ msg: "Internal server error.", error: error.message });
+        return res.status(500).json({ msg: "Internal server error.", error: error.message });
     }
 });
 
@@ -65,17 +72,17 @@ router.put("/updatemushroom/:id", async (req, res) => {
 router.delete("/deletemushroom/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedMushroom = await Mushroom.findOneAndDelete({ id });
+        const deletedMushroom = await Mushroom.findOneAndDelete({ id});
 
         if (!deletedMushroom) {
             return res.status(404).json({ msg: "Mushroom not found." });
         }
 
-        res.status(200).json({ msg: "Mushroom deleted successfully." });
+        return res.status(200).json({ msg: "Mushroom deleted successfully." });
 
     } catch (error) {
         console.error("Error deleting mushroom:", error);
-        res.status(500).json({ msg: "Internal server error.", error: error.message });
+        return res.status(500).json({ msg: "Internal server error.", error: error.message });
     }
 });
 

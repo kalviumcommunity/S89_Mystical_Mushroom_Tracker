@@ -7,7 +7,7 @@ const EntityList = () => {
 
   const fetchEntities = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/mush/getmushroom");
+      const response = await axios.get("http://localhost:3009/mush/getmushroom");
       console.log(response.data)
       setEntities(response.data);
     } catch (error) {
@@ -24,7 +24,7 @@ const EntityList = () => {
     <div style={{ textAlign: "center"}}>
       <h1>🌟 Mystical Entity Tracker 🌟</h1>
       {entities.map((entity) => (
-        <div key={entity._id} className="entity-container">
+        <div key={entity.id} className="entity-container">
           <h2>{entity.name}</h2>
           <p><strong>Location:</strong> {entity.location}</p>
           <p><strong>Rarity:</strong> {entity.rarity}</p>

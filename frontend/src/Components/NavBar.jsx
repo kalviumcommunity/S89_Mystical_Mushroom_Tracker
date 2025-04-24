@@ -31,6 +31,9 @@ const NavBar = () => {
         <button style={buttonStyle}>EntityList</button>
       </div>
 
+      <div onClick={()=>navigate("/AddList")}>
+        <button style={buttonStyle}>Add Mushroom</button>
+      </div>
     </div>
   );
 };
