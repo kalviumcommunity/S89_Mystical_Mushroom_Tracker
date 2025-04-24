@@ -1,6 +1,5 @@
 const express = require("express");
 const Mushroom = require("./schema");
-const mushroom = require("./schema");
 const router = express.Router();
 router.use(express.json());
 
@@ -13,10 +12,10 @@ router.post("/postmushroom", async (req, res) => {
         if (!name || !location || !rarity) {
             return res.status(400).json({ msg: "Please provide all required fields." });
         }
-        const exit = await Mushroom.findOne({name});
-        console.log(exit)
-        if (exit){
-            return res.status(400).send({msg:"user already exit"});
+        const exist = await Mushroom.findOne({name});
+        console.log(exist)
+        if (exist){
+            return res.status(400).send({msg:"user already exists"});
         }
         const data = new Mushroom({name, location, rarity, effects, discovered_by });
         await data.save();

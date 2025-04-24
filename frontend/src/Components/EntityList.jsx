@@ -7,7 +7,7 @@ const EntityList = () => {
 
   const fetchEntities = async () => {
     try {
-      const response = await axios.get("http://localhost:3009/mush/getmushroom");
+      const response = await axios.get("http://localhost:8080/mush/getmushroom");
       console.log(response.data)
       setEntities(response.data);
     } catch (error) {
